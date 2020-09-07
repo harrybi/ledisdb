@@ -1,3 +1,7 @@
+# 老毕修改内容
+## 列表如下：
++ 修复MGet方法在大量删除后调用过慢的问题
+
 # LedisDB 
 
 [![Build Status](https://travis-ci.org/ledisdb/ledisdb.svg?branch=develop)](https://travis-ci.org/ledisdb/ledisdb) [![codecov](https://codecov.io/gh/ledisdb/ledisdb/branch/master/graph/badge.svg)](https://codecov.io/gh/ledisdb/ledisdb) [![goreportcard](https://goreportcard.com/badge/github.com/ledisdb/ledisdb)](https://goreportcard.com/report/github.com/ledisdb/ledisdb)
