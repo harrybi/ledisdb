@@ -233,17 +233,17 @@ func (db *DB) IncrBy(key []byte, increment int64) (int64, error) {
 
 // MGet gets multi data.
 func (db *DB) MGet(keys ...[]byte) ([][]byte, error) {
-	values := make([][]byte, len(keys))
 
-	it := db.bucket.NewIterator()
-	defer it.Close()
+	values := make([][]byte, 0, len(keys))
 
-	for i := range keys {
-		if err := checkKeySize(keys[i]); err != nil {
-			return nil, err
+	for _, key := range keys {
+		buf, err := db.Get(key)
+		if err != nil {
+			return values, err
 		}
-
-		values[i] = it.Find(db.encodeKVKey(keys[i]))
+		if buf != nil {
+			values = append(values, buf)
+		}
 	}
 
 	return values, nil
