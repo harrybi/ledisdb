@@ -172,6 +172,10 @@ func NewConfigWithData(data []byte) (*Config, error) {
 		return nil, fmt.Errorf("newConfigwithData: unmarashal: %s", err)
 	}
 
+	if cfg.m == nil {
+		cfg.m = new(sync.RWMutex)
+	}
+
 	cfg.adjust()
 
 	return cfg, nil
