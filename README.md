@@ -4,6 +4,8 @@
 
 ## 老毕修改内容如下：
 + 修复MGet方法在大量删除后调用过慢的问题
++ 修复当指定配置文件后导致config.m为nil的bug
+
 
 尊重原著：https://github.com/ledisdb/ledisdb
 
